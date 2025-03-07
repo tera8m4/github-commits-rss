@@ -1,0 +1,25 @@
+{
+  "name": "github-rss",
+  "version": "0.1.0",
+  "main": "app.js",
+  "author": "tera8",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "@octokit/rest": "^21.1.1",
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.13.9",
+    "@types/rss": "^0.0.32",
+    "@types/sqlite3": "^5.1.0",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "octokit": "^4.1.2",
+    "rss": "^1.2.2",
+    "sqlite3": "^5.1.7",
+    "typescript": "^5.8.2"
+  },
+  "scripts": {
+    "tsc": "tsc",
+    "dev": "tsc --watch"
+  }
+}
