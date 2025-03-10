@@ -64,7 +64,10 @@ The server will run at `http://localhost:3000/rss`.
 
 2. **Run the Docker container**
    ```bash
-   docker run -p 3000:3000 --env-file .env github-commits-rss
+   docker run -p 3000:3000 \
+   --env-file .env \
+   -v /path/to/local/storage:/usr/src/app/storage/ \
+   github-commits-rss
    ```
 
 ## Usage

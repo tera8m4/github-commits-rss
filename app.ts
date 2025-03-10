@@ -30,7 +30,7 @@ const FEED_URL = process.env.FEED_URL || `http://localhost:${port}/rss`;
 
 
 // Database setup using node:sqlite
-const db = new sqlite.DatabaseSync('./commits.db', { open: true });
+const db = new sqlite.DatabaseSync('./storage/commits.db', { open: true });
 
 db.exec(`
         CREATE TABLE IF NOT EXISTS commits (
@@ -66,9 +66,9 @@ async function dbSetMetadata(key: string, value: string): Promise<void> {
 // Fetch and store commits from GitHub
 async function fetchAndStoreCommits(): Promise<void> {
     const req = db.prepare('SELECT value FROM metadata WHERE key = ?')
-        .get('last_fetched') as any;
+        .get('last_fetched') as any | undefined;
 
-    const lastFetched: string | undefined = req.value;
+    const lastFetched: string | undefined = req?.value;
 
     const options = {
         owner,
